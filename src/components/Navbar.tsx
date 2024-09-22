@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { SearchInput } from "./SearchInput";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // Assuming you're using lucide-react for icons
+import { Menu, X } from "lucide-react";
 
 const navbarRoutes = [
   { title: "Genre" },
@@ -16,7 +16,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-16 py-4 flex flex-wrap justify-between items-center">
+    <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-16 py-4 flex flex-wrap justify-between items-center mb-8">
       <div className="flex items-center gap-8">
         <Link href={"/"} className="text-xl font-bold gradient-text">
           Anime<span className="gradient-text-purple">Bay</span>
@@ -31,10 +31,18 @@ const Navbar = () => {
                 <span className="gradient-letter">{item.title[0]}</span>
                 {item.title.slice(1)}
               </Link>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-300 group-hover:w-full rounded-lg"></span>
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Desktop Navigation */}
+      <div className="hidden sm:flex items-center gap-8">
+        <SearchInput />
+        <Avatar className="w-8 h-8">
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        </Avatar>
       </div>
 
       {/* Mobile menu button */}
@@ -45,13 +53,6 @@ const Navbar = () => {
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Desktop Navigation */}
-      <div className="hidden sm:flex items-center gap-8">
-        <SearchInput />
-        <Avatar className="w-8 h-8">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        </Avatar>
-      </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
