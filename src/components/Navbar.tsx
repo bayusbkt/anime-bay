@@ -16,7 +16,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-16 py-4 flex flex-wrap justify-between items-center mb-8">
+    <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-16 py-4 flex flex-wrap justify-between items-center">
       <div className="flex items-center gap-8">
         <Link href={"/"} className="text-xl font-bold gradient-text">
           Anime<span className="gradient-text-purple">Bay</span>
@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden sm:flex items-center gap-8">
+      <div className="hidden sm:flex items-center gap-4">
         <SearchInput />
         <Avatar className="w-8 h-8">
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
