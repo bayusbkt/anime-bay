@@ -64,3 +64,12 @@ export async function searchAnime(keyword: string, page: number){
     throw error;
   }
 }
+
+export async function getAnimeById(id: string){
+  try {
+    const response = await axios.get(`${URL}/anime/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

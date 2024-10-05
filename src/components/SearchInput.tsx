@@ -12,6 +12,7 @@ export function SearchInput() {
     if (e.key === "Enter") {
       e.preventDefault();
       router.push(`/search?search_query=${keyword}`);
+      searchRef.current.value = "";
     }
   };
 
