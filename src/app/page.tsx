@@ -41,9 +41,9 @@ export default function Home() {
       <div className="-mx-28 mb-20">
         <Hero />
       </div>
-      <AnimeList animeData={topAnimeData} title={"Top Anime"} />
-      <AnimeList animeData={seasonAnimeData} title={"This Season"} />
-      <AnimeList animeData={upcomingAnimeData} title={"Upcoming Season"} />
+      <AnimeList animeData={topAnimeData} title={"Top Anime"} link={"/top"}/>
+      <AnimeList animeData={seasonAnimeData} title={"This Season"} link={"/season"}/>
+      <AnimeList animeData={upcomingAnimeData} title={"Upcoming Season"} link={"/upcoming-season"}/>
     </div>
   );
 }

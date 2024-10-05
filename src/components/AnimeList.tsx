@@ -7,22 +7,25 @@ import Link from "next/link";
 
 interface AnimeListProps {
   animeData?: Anime[] | null;
-  title?: string;
+  title: string;
+  link?: string;
 }
 
-const AnimeList = ({ animeData, title }: AnimeListProps) => {
+const AnimeList = ({ animeData, title, link }: AnimeListProps) => {
   return (
     <div className="flex flex-col -mx-14 mb-12">
       <div className="flex justify-between mb-4">
         <h2 className="text-2xl font-bold border-b-blue-500 border-b-2">
           {title}
         </h2>
-        <Link
-          href={"/"}
-          className="text-blue-500 hover:text-blue-700 transition-colors"
-        >
-          View More
-        </Link>
+        {link && (
+          <Link
+            href={link}
+            className="text-blue-500 hover:text-blue-700 transition-colors"
+          >
+            View More
+          </Link>
+        )}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {animeData?.map((anime) => (

@@ -1,5 +1,25 @@
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import { useRef } from "react";
 
 export function SearchInput() {
-  return <Input type="text" placeholder="Search..." />
+  const searchRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  const handleEnter = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const keyword = searchRef.current?.value;
+      router.push(`/search?search_query=${keyword}`);
+    }
+  };
+
+  return (
+    <Input
+      type="text"
+      placeholder="Search..."
+      ref={searchRef}
+      onKeyDown={handleEnter}
+    />
+  );
 }

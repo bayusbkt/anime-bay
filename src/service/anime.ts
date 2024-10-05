@@ -28,3 +28,12 @@ export async function upcomingSeasonAnime() {
     throw error;
   }
 }
+
+export async function searchAnime(keyword: string){
+  try {
+    const response = await axios.get(`${URL}/anime?q=${keyword}`)
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
