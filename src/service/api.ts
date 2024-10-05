@@ -11,9 +11,9 @@ export async function topAnime() {
   }
 }
 
-export async function allTopAnime() {
+export async function allTopAnime(pageNumber: number) {
   try {
-    const response = await axios.get(`${URL}/top/anime`);
+    const response = await axios.get(`${URL}/top/anime?page=${pageNumber}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -29,9 +29,9 @@ export async function thisSeasonAnime() {
   }
 }
 
-export async function allThisSeasonAnime() {
+export async function allThisSeasonAnime(pageNumber: number) {
   try {
-    const response = await axios.get(`${URL}/seasons/now`);
+    const response = await axios.get(`${URL}/seasons/now?page=${pageNumber}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -47,18 +47,18 @@ export async function upcomingSeasonAnime() {
   }
 }
 
-export async function allUpcomingSeasonAnime() {
+export async function allUpcomingSeasonAnime(pageNumber: number) {
   try {
-    const response = await axios.get(`${URL}/seasons/upcoming`);
+    const response = await axios.get(`${URL}/seasons/upcoming?page=${pageNumber}`);
     return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-export async function searchAnime(keyword: string){
+export async function searchAnime(keyword: string, page: number){
   try {
-    const response = await axios.get(`${URL}/anime?q=${keyword}`)
+    const response = await axios.get(`${URL}/anime?q=${keyword}&page=${page}`)
     return response.data;
   } catch (error) {
     throw error;

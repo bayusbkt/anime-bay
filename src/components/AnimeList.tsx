@@ -15,7 +15,7 @@ const AnimeList = ({ animeData, title, link }: AnimeListProps) => {
   return (
     <div className="flex flex-col -mx-14 mb-12">
       <div className="flex justify-between mb-4">
-        <h2 className="text-2xl font-bold border-b-blue-500 border-b-2">
+        <h2 className="text-2xl font-bold border-b-blue-500 border-b-2" id="anime-title">
           {title}
         </h2>
         {link && (
