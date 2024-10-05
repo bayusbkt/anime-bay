@@ -7,9 +7,10 @@ export function SearchInput() {
   const router = useRouter();
 
   const handleEnter = (e: React.KeyboardEvent) => {
+    const keyword = searchRef.current?.value;
+    if (!keyword) return;
     if (e.key === "Enter") {
       e.preventDefault();
-      const keyword = searchRef.current?.value;
       router.push(`/search?search_query=${keyword}`);
     }
   };
