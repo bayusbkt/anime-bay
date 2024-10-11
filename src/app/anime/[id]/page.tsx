@@ -19,9 +19,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import StatCard from "@/components/StatCard";
 import InfoCard from "@/components/InfoCard";
+import TrailerCard from "@/components/TrailerCard";
 
 const AnimeIdPage = ({ params }: { params: { id: string } }) => {
-  const [animeData, setAnimeData] = useState<Anime>();
+  const [animeData, setAnimeData] = useState<Anime | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
@@ -104,10 +105,10 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                   <StatCard
                     icon={<Star className="text-yellow-400" />}
-                    value={animeData.score?.toFixed(2) ?? "N/A"}
+                    value={animeData.score?.toString() ?? "N/A"}
                     label="Score"
                   />
-                  {animeData.rank !== null && (
+                  {animeData.rank && (
                     <StatCard
                       icon={<TrendingUp className="text-green-500" />}
                       value={`#${animeData.rank}`}
@@ -116,12 +117,12 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
                   )}
                   <StatCard
                     icon={<Award className="text-purple-500" />}
-                    value={`#${animeData.popularity}` ?? "N/A"}
+                    value={`#${animeData.popularity}`}
                     label="Popularity"
                   />
                   <StatCard
                     icon={<Heart className="text-red-500" />}
-                    value={animeData.favorites?.toLocaleString() ?? "N/A"}
+                    value={animeData.favorites?.toString() ?? "N/A"}
                     label="Favorites"
                   />
                 </div>
@@ -132,7 +133,7 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
                   <InfoCard
                     icon={<Play size={20} />}
                     title="Type"
-                    value={animeData.type ?? "N/A"}
+                    value={animeData.type}
                   />
                   <InfoCard
                     icon={<List size={20} />}
@@ -142,25 +143,28 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
                   <InfoCard
                     icon={<Clock size={20} />}
                     title="Duration"
-                    value={animeData.duration ?? "N/A"}
+                    value={animeData.duration}
                   />
                   <InfoCard
                     icon={<Calendar size={20} />}
                     title="Aired"
-                    value={animeData.aired.from?.slice(0, 10) ?? "N/A"}
+                    value={animeData.aired?.toString()}
                   />
                   <InfoCard
                     icon={<List size={20} />}
                     title="Status"
-                    value={animeData.status ?? "N/A"}
+                    value={animeData.status}
                   />
                   <InfoCard
                     icon={<Heart size={20} />}
                     title="Rating"
-                    value={animeData.rating ?? "N/A"}
+                    value={animeData.rating}
                   />
                 </div>
               </div>
+            </div>
+            <div className="p-6 sm:p-10">
+              <TrailerCard trailer={animeData.trailer} />
             </div>
           </CardContent>
         </Card>
