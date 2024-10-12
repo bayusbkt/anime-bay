@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { getDynamicSeasonAnime } from "@/service/api";
 import ViewMoreList from "@/components/ViewMoreList";
+import { Suspense } from "react";
 
 const AnimeSeasonPage = ({
   params,
@@ -25,10 +26,12 @@ const AnimeSeasonPage = ({
   };
 
   return (
-    <ViewMoreList 
-      fetchFunction={fetchSeasonAnime} 
-      title={`Anime for ${params.season} ${year}`}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <ViewMoreList
+        fetchFunction={fetchSeasonAnime}
+        title={`Anime for ${params.season} ${year}`}
+      />
+    </Suspense>
   );
 };
 

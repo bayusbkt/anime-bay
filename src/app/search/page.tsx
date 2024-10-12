@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { searchAnime } from "@/service/api";
 import ViewMoreList from "@/components/ViewMoreList";
+import { Suspense } from "react";
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -13,10 +14,12 @@ const SearchPage = () => {
   };
 
   return (
-    <ViewMoreList
-      fetchFunction={searchFetchFunction}
-      title={`Results for "${searchQuery}"`}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <ViewMoreList
+        fetchFunction={searchFetchFunction}
+        title={`Results for "${searchQuery}"`}
+      />
+    </Suspense>
   );
 };
 
