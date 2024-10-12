@@ -115,6 +115,7 @@ export interface AnimeData {
     type: string;
     name: string;
     url: string;
+    count: number;
   }
   
   export interface Pagination {

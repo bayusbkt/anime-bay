@@ -51,8 +51,11 @@ const ViewMoreList = ({ fetchFunction, title }: ViewMoreListProps) => {
 
   const handlePageChange = (newPage: number) => {
     const searchQuery = searchParams.get("search_query");
+    const yearQuery = searchParams.get("year");
     if (searchQuery) {
       router.push(`?search_query=${searchQuery}&page=${newPage}`);
+    } else if (yearQuery){
+      router.push(`?year=${yearQuery}&page=${newPage}`);
     } else {
       router.push(`?page=${newPage}`);
     }

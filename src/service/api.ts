@@ -73,3 +73,40 @@ export async function getAnimeById(id: string){
     throw error;
   }
 }
+
+export async function getAnimeGenre(){
+  try {
+    const response = await axios.get(`${URL}/genres/anime`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getSeasonList(){
+  try {
+    const response = await axios.get(`${URL}/seasons`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getDynamicSeasonAnime(year: number, season: string, page: number){
+  try {
+    const response = await axios.get(`${URL}/seasons/${year}/${season}?page=${page}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getTodayAired(page: number){
+  try {
+    const response = await axios.get(`${URL}/schedules?page=${page}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+

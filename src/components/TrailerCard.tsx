@@ -1,13 +1,10 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Play } from "lucide-react";
+import { Trailer } from '@/types/animeType';
 
 interface TrailerCardProps {
-  trailer: {
-    youtube_id: string | null;
-    url: string | null;
-    embed_url: string | null;
-  } | null;
+  trailer: Trailer | null;
 }
 
 const TrailerCard = ({ trailer }: TrailerCardProps) => {

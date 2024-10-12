@@ -7,9 +7,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navbarRoutes = [
-  { title: "Genre" },
-  { title: "Movie" },
-  { title: "ONAS" },
+  { title: "Genre", route: "/anime/genre" },
+  { title: "Season", route: "/anime/season"  },
+  { title: "Today Aired", route: "/anime/today"  },
 ];
 
 const Navbar = () => {
@@ -18,14 +18,14 @@ const Navbar = () => {
   return (
     <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-14 py-4 flex flex-wrap justify-between items-center">
       <div className="flex items-center gap-8">
-        <Link href={"/"} className="text-xl font-bold gradient-text">
+        <Link href={`/`} className="text-xl font-bold gradient-text">
           Anime<span className="gradient-text-purple">Bay</span>
         </Link>
         <ul className="hidden sm:flex gap-8">
           {navbarRoutes.map((item) => (
             <li key={item.title} className="relative group">
               <Link
-                href="#"
+                href={item.route}
                 className="text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 transition-colors duration-300"
               >
                 <span className="gradient-letter">{item.title[0]}</span>
