@@ -61,7 +61,7 @@ const Navbar = () => {
             {navbarRoutes.map((item) => (
               <li key={item.title} className="relative group">
                 <Link
-                  href="#"
+                  href={item.route}
                   className="text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 transition-colors duration-300"
                 >
                   <span className="gradient-letter">{item.title[0]}</span>
