@@ -15,7 +15,7 @@ const SearchPage = () => {
 
 const SearchContent = () => {
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("search_query") || "";
+  const searchQuery = searchParams.get("keyword") || "";
 
   const searchFetchFunction = (page: number) => {
     return searchAnime(searchQuery, page);

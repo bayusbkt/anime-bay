@@ -101,9 +101,9 @@ export async function getDynamicSeasonAnime(year: number, season: string, page: 
   }
 }
 
-export async function getTodayAired(page: number){
+export async function getSchedules(page: number, day: string){
   try {
-    const response = await axios.get(`${URL}/schedules?page=${page}`);
+    const response = await axios.get(`${URL}/schedules?filter=${day}&page=${page}`);
     return response.data;
   } catch (error) {
     throw error;

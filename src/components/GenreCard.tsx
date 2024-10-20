@@ -58,7 +58,10 @@ const GenreCard: React.FC<GenreCardProps> = ({ genre }) => {
         </p>
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-500">Rank: {genre.mal_id}</span>
-          <Button variant="ghost" className="text-blue-500 hover:text-blue-700 p-2">
+          <Button
+            variant="ghost"
+            className="text-blue-500 hover:text-blue-700 p-2"
+          >
             Explore
           </Button>
         </div>

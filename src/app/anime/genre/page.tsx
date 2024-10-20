@@ -52,7 +52,7 @@ const GenrePage = () => {
         </Button>
       </div>
       {loading ? (
-        <div className="text-center">
+        <div className="text-center mt-32">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500 mx-auto"></div>
           <p className="mt-4 text-xl text-gray-600">Discovering genres...</p>
         </div>

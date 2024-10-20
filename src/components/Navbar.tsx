@@ -5,15 +5,21 @@ import { SearchInput } from "./SearchInput";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navbarRoutes = [
   { title: "Genre", route: "/anime/genre" },
-  { title: "Season", route: "/anime/season"  },
-  { title: "Today Aired", route: "/anime/today"  },
+  { title: "Season", route: "/anime/season" },
+  { title: "Schedules", route: "/anime/schedules" },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (route: string) => {
+    return pathname === route || pathname.startsWith(`${route}/`);
+  };
 
   return (
     <nav className="max-w-[1640px] px-4 sm:px-6 lg:px-14 py-4 flex flex-wrap justify-between items-center">
@@ -26,12 +32,19 @@ const Navbar = () => {
             <li key={item.title} className="relative group">
               <Link
                 href={item.route}
-                className="text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 transition-colors duration-300"
+                className={`text-white transition-colors duration-300 ${
+                  isActive(item.route)
+                    ? "gradient-text bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+                    : "hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600"
+                }`}
               >
-                <span className="gradient-letter">{item.title[0]}</span>
-                {item.title.slice(1)}
+                {item.title}
               </Link>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-300 group-hover:w-full rounded-lg"></span>
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-300 rounded-lg ${
+                  isActive(item.route) ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
             </li>
           ))}
         </ul>
@@ -53,7 +66,6 @@ const Navbar = () => {
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="w-full sm:hidden mt-4">
@@ -62,7 +74,11 @@ const Navbar = () => {
               <li key={item.title} className="relative group">
                 <Link
                   href={item.route}
-                  className="text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 transition-colors duration-300"
+                  className={`text-white transition-colors duration-300 ${
+                    isActive(item.route)
+                      ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+                      : "hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600"
+                  }`}
                 >
                   <span className="gradient-letter">{item.title[0]}</span>
                   {item.title.slice(1)}

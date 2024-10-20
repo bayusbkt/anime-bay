@@ -40,7 +40,7 @@ const SeasonListPage: React.FC<SeasonListProps> = ({ data }) => {
             className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <CardHeader className="border-b-2 py-4 px-6">
-              <CardTitle className="text-2xl font-semibold text-blue-700">
+              <CardTitle className="text-2xl font-semibold text-gray-800">
                 {yearData.year === 0 ? "Unknown Year" : yearData.year}
               </CardTitle>
             </CardHeader>
