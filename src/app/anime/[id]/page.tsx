@@ -58,6 +58,8 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
     );
   }
 
+  console.log(animeData.aired)
+
   return (
     <div className="min-h-screen py-10">
       <div className="max-w-[1640px] mx-auto px-6 sm:px-10 lg:px-14">
@@ -148,7 +150,7 @@ const AnimeIdPage = ({ params }: { params: { id: string } }) => {
                   <InfoCard
                     icon={<Calendar size={20} />}
                     title="Aired"
-                    value={animeData.aired?.toString()}
+                    value={animeData.aired.string}
                   />
                   <InfoCard
                     icon={<List size={20} />}

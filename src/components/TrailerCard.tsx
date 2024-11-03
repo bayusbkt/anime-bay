@@ -25,7 +25,7 @@ const TrailerCard = ({ trailer }: TrailerCardProps) => {
           <iframe
             src={trailer.embed_url}
             title="Anime Trailer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="absolute top-0 left-0 w-full h-full"
           />

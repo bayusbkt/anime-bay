@@ -68,6 +68,7 @@ export interface AnimeData {
     from: string;
     to: string;
     prop: AiredProp;
+    string: string;
   }
   
   export interface AiredProp {
